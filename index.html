@@ -764,7 +764,13 @@
       lastActiveTime: Date.now(),
       lastEffectTime: 0
     };
+ // [1] 絵文字パーティクルの数と頻度を制御するための状態
+    let emojiParticleCount = 0;
+    const MAX_EMOJI_PARTICLES = 60;   // DOM上に存在できる絵文字の最大数
+    let lastEmojiTime = 0;
+    const EMOJI_INTERVAL_MS = 110;    // スワイプ中に新規生成する最短間隔
 
+   
     // ==================== DOM要素 ====================
     const canvas = document.getElementById('particles-canvas');
     const ctx = canvas.getContext('2d');
